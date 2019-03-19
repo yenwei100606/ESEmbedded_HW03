@@ -53,10 +53,10 @@ This is the hw03 sample. Please follow the steps below.
 
 --------------------
 
-##1. 實驗題目  
+## 1. 實驗題目  
 更改main.c，並且透過組合語言及QEMU觀察C語言函式呼叫之情形
 
-##2. 實驗步驟
+## 2. 實驗步驟
 
 * 改寫main.c檔
 ```
@@ -193,7 +193,7 @@ Disassembly of section .ARM.attributes:
 
 
 
-##3. 結果與討論
+## 3. 結果與討論
 * 透過這次的作業，得知要呼叫function時，會先將r7 push，然後將stack pointer空出來。  
   當主程式呼叫function時，會先利用r0,r1,r2,r3  
 * 若不夠用時才會用到stack，要傳遞參數時才會將參數load出來到暫存器，做完運算後在load到r    

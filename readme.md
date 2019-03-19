@@ -53,13 +53,13 @@ This is the hw03 sample. Please follow the steps below.
 
 --------------------
 
-1. 實驗題目  
+##1. 實驗題目  
 更改main.c，並且透過組合語言及QEMU觀察C語言函式呼叫之情形
 
-2. 實驗步驟
+##2. 實驗步驟
 
-改寫main.c檔
-
+* 改寫main.c檔
+```
 int addten(int a)
 {
         int b=a+10;
@@ -79,8 +79,9 @@ void reset_handler(void)
         while (1)
                 ;
 }
-
-利用makefile進行編譯的動作，得到如下:  
+```
+* 利用makefile進行編譯的動作，得到如下:  
+```
 Disassembly of section .mytext:
 
 00000000 <addten-0x8>:
@@ -185,16 +186,16 @@ Disassembly of section .ARM.attributes:
   28:	1a011803 	bne	4603c <reset_handler+0x45fdc>
   2c:	22061e01 	andcs	r1, r6, #1, 28
   30:	Address 0x0000000000000030 is out of bounds.
+```
+* 先將資料夾 gnu-mcu-eclipse-qemu 完整複製到 ESEmbedded_HW03 資料夾中  
+* 利用qemu觀察暫存器之情形
+* 讀Cortex-M4的指令集，讓我們更了解底層運作  
 
-先將資料夾 gnu-mcu-eclipse-qemu 完整複製到 ESEmbedded_HW03 資料夾中  
-利用qemu觀察暫存器之情形
-讀Cortex-M4的指令集，讓我們更了解底層運作  
 
 
-
-3. 結果與討論
-透過這次的作業，得知要呼叫function時，會先將r7 push，然後將stack pointer空出來。  
-當主程式呼叫function時，會先利用r0,r1,r2,r3  
-若不夠用時才會用到stack，要傳遞參數時才會將參數load出來到暫存器，做完運算後在load到r  
-直到最後將結果用r0回傳
+##3. 結果與討論
+* 透過這次的作業，得知要呼叫function時，會先將r7 push，然後將stack pointer空出來。  
+  當主程式呼叫function時，會先利用r0,r1,r2,r3  
+* 若不夠用時才會用到stack，要傳遞參數時才會將參數load出來到暫存器，做完運算後在load到r    
+  直到最後將結果用r0回傳
 
